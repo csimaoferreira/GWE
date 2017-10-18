@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- add metadata -->
+  <title>Wind Energy Game - Delft University of Technology</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Wind Energy Game: Massive Open Online Course by Delft University of Technology" />
+  <meta name="keywords" content="wind Energy, game, MOOC, MAssive Online Open Course, Delft university of Technology, TU Delft" />
+  <meta name="author" content="Carlos Simao Ferreira et al" />
+  <meta name="acknowledgments" content="Much inspiration for this game came from other (open source) games, tutorials and people, for example: 'The Aviator Game'. Our thanks to all those that contribute to open source." />
+
+  <!-- add links to css files with style description -->
+  <link rel="stylesheet" type="text/css" href="css/gamestyles.css">
+
+  <!-- sources for reveal.js presentation module -->
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/tudelft_simple.css" id="theme">
+
+  <!-- end of presentation modules -->
+
+  <!-- add js scripts with code for the game, and necessary libraries -->
+  <script type="text/javascript" src="js/three.js" onerror="alert('error loading three.js')"></script>
+  <!-- add library for Sky -->
+  <!-- <script type="text/javascript" src="lib/js/SkyShader.js" onerror="alert('error loading SkyShader.js')"></script> -->
+
+
+  <!-- define variables use in the game, associated with the game -->
+  <script type="text/javascript" src="js/gamevariables.js" onerror="alert('js/gamevariables.js')"></script>
+  <!-- define game control methods  -->
+  <script type="text/javascript" src="js/game_control.js" onerror="alert('js/game_control.js')"></script>
+  <!-- define methods for wind energy system and units  -->
+  <script type="text/javascript" src="js/update_elements_system.js" onerror="alert('js/update_elements_system.js')"></script>
+  <!-- define methods to create turbines  -->
+  <script type="text/javascript" src="assets/turbines.js" onerror="alert('error loading modernHAWT.js')"></script>
+  <!-- load definition for location controllers and others -->
+  <script type="text/javascript" src="assets/control_location_identifiers.js" onerror="alert('error loading assets/control_location_identifiers.js')"></script>
+
+
+  <!-- load definition for location controllers and others -->
+  <script type="text/javascript" src="assets/forests.js" onerror="alert('error loading assets/forests.js')"></script>
+  <script type="text/javascript" src="assets/farms.js" onerror="alert('error loading assets/farms.js')"></script>
+  <script type="text/javascript" src="assets/houses.js" onerror="alert('error loading assets/farms.js')"></script>
+  <script type="text/javascript" src="assets/mountains.js" onerror="alert('error loading assets/mountains.js')"></script>
+
+  <!-- load definition for possible turbine descriptions -->
+  <script type="text/javascript" src="inputandproperties/wind_energy_unit_definition.js" onerror="alert('error loading inputandproperties/wind_energy_unit_definition.js')"></script>
+  <!-- define methods to create landscapes  -->
+  <script type="text/javascript" src="assets/landscape_and_world.js" onerror="alert('error loading assets/landscape_and_world.js')"></script>
+  <!-- define the landscape and scene for the main menu -->
+  <script type="text/javascript" src="assets/main_menu_landscape_and_scene.js" onerror="alert('error loading assets/main_menu_landscape_and_scene.js')"></script>
+  <!-- load definition for possible landscape descriptions -->
+  <script type="text/javascript" src="inputandproperties/landscape_and_world_definition.js" onerror="alert('error inputandproperties\landscape_and_world_definition.js')"></script>
+
+  <!-- load controls for teh tutorial /  presentation region -->
+  <script type="text/javascript" src="js/control_tutorial.js" onerror="alert('error loading js/control_tutorial.js')"></script>
+
+
+  <!-- functions to create scene and loop the frame -->
+  <script type="text/javascript" src="js/create_scene_and_loop_frame.js" onerror="alert('js/create_scene_and_loop_frame.js')"></script>
+
+  <!-- add landscapes and levels and missions -->
+  <script type="text/javascript" src="missions/OldPersia_level1.js" onerror="alert('error loading missions/OldPersia_level1.js')"></script>
+
+
+
+  <!-- define event that start the initialization of the game -->
+  <script> "window.addEventListener('load', init, false);" </script>
+
+
+</head>
+
+<!-- add body of page -->
+<body>
+
+  <div class="game-holder" id="gameHolder">
+    <!-- heading with game title -->
+    <!-- define world where the scene will be added -->
+
+
+
+    <div class="mainmenucontainer" id="main_menu_container">
+
+      <div class="header">
+        <h1><span>the</span>Wind Energy Game</h1>
+        <h2>Power your knowledge</h2>
+      </div>  <!-- finish heading -->
+
+      <div class="start_menu_style" id="game_start_menu">
+        <button  style="left:5%" onclick="onclickof_button_main_menu_start()" class="button_game_menu">
+          Play Game
+        </button>
+        <button  style="right:5%" onclick="openslidepresentation()" class="button_game_menu">
+          Wind Tutorial
+        </button>
+      </div>
+
+      <div class="message message--instructions" id="TUDelftMOOC">
+        Delft University of Technology<span>Wind Energy Massive Open Online Course</span>
+      </div>
+        <!-- close main menu -->
+    </div>
+
+
+
+    <div class="world" id="world">
+
+
+        <!-- score and other info -->
+        <div class="score" id="score">
+          <div class="score__content" id="month">
+            <div class="score__label">month</div>
+            <div class="score__value score__value--level" id="monthvalue">1</div>
+            <!-- <svg class="level-circle" id="levelCircle" viewbox="0 0 200 200"> -->
+              <!-- <circle id="levelCircleBgr" r="80" cx="100" cy="100" fill="none" stroke="#d1b790" stroke-width="24px" /> -->
+              <!-- <circle id="levelCircleStroke" r="80" cx="100" cy="100" fill="none" #f25346 stroke="#68c3c0" stroke-width="14px" stroke-dasharray="502" stroke-dashoffset="300" /> -->
+            <!-- </svg> -->
+          </div>
+          <div class="score__content" id="Power">
+            <div class="score__label">Power</div>
+            <div class="score__value score__value--power" id="powervalue">12345</div>
+          </div>
+          <div class="score__content" id="Capital">
+            <div class="score__label">Capital</div>
+            <div class="score__value score__value--power" id="capitalvalue">12345</div>
+          </div>
+          <div class="score__content" id="CoE">
+            <div class="score__label">Cost of Energy</div>
+            <div class="score__value score__value--power" id="coevalue">12345</div>
+          </div>
+          <div class="score__content" id="Public acceptance">
+            <div class="score__label">Public acceptance</div>
+            <div class="score__value score__value--publicacceptance" id="acceptancevalue">
+              <!-- <div class="acceptance-bar" id="acceptanceBar"></div> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- add menu for operations and design on the game  -->
+        <div class="game_menu_operdesign" id="game_menu_operdes">
+          <button  onclick="information_button_game_menu_operdesign()" class="button_game_menu_operdesign">
+            Information
+          </button>
+          <button  onclick="onclickof_button_game_menu_operdesign_id_install()" class="button_game_menu_operdesign">
+            Install
+          </button>
+          <button  onclick="repair_button_game_menu_operdesign()" type="button" class="button_game_menu_operdesign">
+            Repair
+          </button>
+          <button  onclick="control_button_game_menu_operdesign()" type="button" class="button_game_menu_operdesign">
+            Control
+          </button>
+          <button  onclick="decomission_button_game_menu_operdesign()"  type="button" class="button_game_menu_operdesign">
+            Decomission
+          </button>
+          <div style="display:none" id="game_operational_information">  </div>
+        </div> <!--  close gamemenu container -->
+
+      </div> <!--  close game container -->
+
+      <div class="blueprint_sandbox" id="blueprint_design_box">
+        <div class="game_menu_sandbox" id="game_menu_sandbox">
+
+          <button  onclick="onclickof_button_sandbox_menu_build();   onclickof_button_sandbox_menu_cancel();" class="button_menu_sandbox">
+            Build
+          </button>
+          <button  onclick="onclickof_button_sandbox_menu_cancel()" class="button_menu_sandbox">
+            Cancel
+          </button>
+        </div>  <!--// end of description of menu of the sandbox -->
+
+        <div class="sandboxdesignspace" id="id_sandboxdesignspace">
+          <p>Select your design options</p>
+          <select id="blueprint_dropdown1" onchange="onchange_sandbox_select(true)" class="blueprint_dropdown"></select>
+          <select id="blueprint_dropdown2" onchange="onchange_sandbox_select(true)" class="blueprint_dropdown"></select>
+          <select id="blueprint_dropdown3" onchange="onchange_sandbox_select(true)" class="blueprint_dropdown"></select>
+          <select id="blueprint_dropdown4" onchange="onchange_sandbox_select(true)" class="blueprint_dropdown"></select>
+          <select id="blueprint_dropdown5" onchange="onchange_sandbox_select(true)" class="blueprint_dropdown"></select>
+          <select id="blueprint_dropdown6" onchange="onchange_sandbox_select(true)" class="blueprint_dropdown"></select>
+          <select id="blueprint_dropdown7" onchange="onchange_sandbox_select(true)" class="blueprint_dropdown"></select>
+          <select id="blueprint_dropdown8" onchange="onchange_sandbox_select(true)" class="blueprint_dropdown"></select>
+        </div>
+
+
+
+        <div class="sandboxcanvas" id="game_sandboxcanvas">  </div>
+
+      </div>   <!--// end of sandbox container -->
+
+
+      <!-- canvas for tutorials   -->
+      <div class="tutorialframe" id="tutorial_frame">
+        <button  onclick="exitslidepresentation()" class="button_tutorial">
+          Exit tutorial
+        </button>
+        <button  style="left:5%" onclick="gotofirstslidepresentation()" class="button_tutorial">
+          Go to start of tutorial
+        </button>
+
+
+        <div class="tutorialframecanvas" id="tutorial_frame_canvas">
+          <div class="reveal"  >
+            <div  class="slides" style="text-align:left">
+
+
+              <!-- /////////////////// start of slides /////////////////////////////////////
+              /////////////////// start of slides /////////////////////////////////////
+              /////////////////// start of slides /////////////////////////////////////
+              /////////////////// start of slides /////////////////////////////////////
+              /////////////////// start of slides /////////////////////////////////////
+              /////////////////// start of slides ///////////////////////////////////// -->
+
+
+              <section id="tutorial_title_slide"> <h2>Wind Energy Tutorial</h2> <h6>Delft University of Technology</h6> </section> <section id="tutorial_TOC_slide"> <h3>Table of Contents</h3> <p>  <a href="#/introduction_master"> Introduction </a> </p> <p>  <a href="#/history_master">The History of Wind Energy</a> </p> <p>  <a href="#/aerodynamics_master">Aerodynamics of Wind Energy</a> </p> </section> <section id="introduction_master"> <h3>Introduction</h3> </section> <section > <section> <h4>Introduction by Prof. Gerard van Bussel</h4> <p style="text-align:center" > <iframe  data-autoplay width="420" height="345" src="http://www.youtube.com/embed/J7vY3g4lflk"></iframe> </p> </section> <section> <h4>About Prof. Gerard van Bussel</h4> <table  style="width:100%"> <td style="width:70%" style="vertical-align:top"> <p style="vertical-align:top">Prof. Gerard van Bussel is the holder of the Chair Wind Energy in TU Delft </p> <a href="http://www.lr.tudelft.nl/en/organisation/chairholders/profile-of-a-prof/gerard-van-bussel/" target="_blank">Full profile</a> </td> <td> <img src="http://www.lr.tudelft.nl/uploads/tx_templavoila/GerardvBussel3.jpg" alt="Link to image failed" > </td> </table> </section> </section> <!-- /////// new slide //// --> <section id="history_master"> <h3>The History of Wind Energy</h3> </section> <section id="history_toc"> <h3>The History of Wind Energy</h3> <h4>Table of contents</h4> </section> <!-- /////// new slide //// --> <section id="aerodynamics_master"> <h3>Aerodynamics of Wind Energy</h3> </section> <section id="aerodynamics_toc"> <h3>Aerodynamics of Wind Energy</h3> <h4>Table of contents</h4> </section> <section id="last_slide"> <h3>End of the tutorial</h3> </section>
+              <!-- ////////////////////////////////////////////////// end of slides /////////////////////////////// ////////////////////////////////////////////////// end of slides ///////////////////////////////
+              ////////////////////////////////////////////////// end of slides ///////////////////////////////
+              ////////////////////////////////////////////////// end of slides ///////////////////////////////
+              ////////////////////////////////////////////////// end of slides ///////////////////////////////
+              ////////////////////////////////////////////////// end of slides /////////////////////////////// -->
+
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>   <!--// end of tutorial -->
+
+
+
+
+    </div> <!--  close gameHolder container -->
+
+
+    <script src="js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+
+    Reveal.initialize({
+      resetOnClose: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition:"convex",
+
+      //Optional libraries used to extend on reveal.js
+      dependencies: [
+        { src: 'js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: 'marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        //  { src: 'js/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        //  { src: 'js/notes.js' }
+      ]
+    });
+
+    </script>
+
+  </body>
+  </html>

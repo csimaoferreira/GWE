@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- add metadata -->
+    <title>Wind Energy Game Presentation- Delft University of Technology</title>
+    <meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Wind Energy Game: Massive Open Online Course by Delft University of Technology" />
+		<meta name="keywords" content="wind Energy, game, MOOC, MAssive Online Open Course, Delft university of Technology, TU Delft" />
+		<meta name="author" content="Carlos Simao Ferreira et al" />
+    <meta name="acknowledgments" content="Much inspiration for this game came from other (open source) games, tutorials and people, for example: 'The Aviator Game'. Our thanks to all those that contribute to open source." />
+
+    <!-- add links to css files with style description -->
+    <link rel="stylesheet" type="text/css" href="../css/gamestyles.css">
+
+      <!-- sources for reveal.js presentation module -->
+    <link rel="stylesheet" href="../css/reveal.css">
+	  <link rel="stylesheet" href="../css/theme/tudelft_simple.css" id="theme">
+
+    <script src="http://www.w3schools.com/lib/w3data.js"></script>
+      <!-- end of presentation modules -->
+
+    <!-- add js scripts with code for the game, and necessary libraries -->
+    <!-- <script type="text/javascript" src="js/three.js" onerror="alert('error loading three.js')"></script> -->
+    <!-- define variables use in the game, associated with the game -->
+    <!-- <script type="text/javascript" src="js/gamevariables.js" onerror="alert('js/gamevariables.js')"></script> -->
+    <!-- define game control methods  -->
+    <!-- <script type="text/javascript" src="js/game_control.js" onerror="alert('js/game_control.js')"></script> -->
+    <!-- define methods to create turbines  -->
+    <!-- <script type="text/javascript" src="assets/modernHAWT.js" onerror="alert('error loading modernHAWT.js')"></script> -->
+    <!-- load definition for possible turbine descriptions -->
+    <!-- <script type="text/javascript" src="inputandproperties/wind_energy_unit_definition.js" onerror="alert('error loading inputandproperties/wind_energy_unit_definition.js')"></script> -->
+    <!-- define methods to create landscapes  -->
+    <!-- <script type="text/javascript" src="assets/landscape_and_world.js" onerror="alert('error loading assets\landscape_and_world.js')"></script> -->
+    <!-- load definition for possible landscape descriptions -->
+    <!-- <script type="text/javascript" src="inputandproperties/landscape_and_world_definition.js" onerror="alert('error inputandproperties\landscape_and_world_definition.js')"></script> -->
+
+    <!-- load controls for teh tutorial /  presentation region -->
+    <script type="text/javascript" src="../js/control_tutorial.js" onerror="alert('error loading js/control_tutorial.js')"></script>
+
+
+    <!-- functions to create scene and loop the frame -->
+    <!-- <script type="text/javascript" src="js/create_scene_and_loop_frame.js" onerror="alert('js/create_scene_and_loop_frame.js')"></script> -->
+    <!-- define event that start the initialization of the game -->
+    <!-- <script> "window.addEventListener('load', init, false);" </script> -->
+
+
+	</head>
+
+  <!-- add body of page -->
+	<body>
+
+       <!-- canvas for tutorials   -->
+       <div class="tutorialframe" style="display:inline" id="tutorial_frame">
+         <button  onclick="exitslidepresentation()" class="button_tutorial">
+           Exit tutorial
+         </button>
+         <button  style="left:5%" onclick="gotofirstslidepresentation()" class="button_tutorial">
+           Table of contents
+         </button>
+
+
+        <div class="tutorialframecanvas" id="tutorial_frame_canvas">
+          <div class="reveal"  >
+      			<div  class="slides" style="text-align:left">
+
+
+              <!-- /////////////////// start of slides /////////////////////////////////////
+              /////////////////// start of slides /////////////////////////////////////
+              /////////////////// start of slides /////////////////////////////////////
+              /////////////////// start of slides /////////////////////////////////////
+              /////////////////// start of slides /////////////////////////////////////
+              /////////////////// start of slides ///////////////////////////////////// -->
+
+
+              <section id="tutorial_title_slide">
+                <h2>Wind Energy Tutorial</h2>
+                <h6>Delft University of Technology</h6>
+
+              </section>
+
+
+              <section id="tutorial_TOC_slide">
+                <h3>Table of Contents</h3>
+                <p>  <a href="#/introduction_master"> Introduction </a> </p>
+                <p>  <a href="#/history_master">The History of Wind Energy</a> </p>
+                <p>  <a href="#/aerodynamics_master">Aerodynamics of Wind Energy</a> </p>
+              </section>
+
+
+              <section id="introduction_master">
+                <h3>Introduction</h3>
+
+              </section>
+
+              <section >
+                <section>
+                  <h4>Introduction by Prof. Gerard van Bussel</h4>
+                  <p style="text-align:center" >
+                    <iframe  data-autoplay width="420" height="345" src="http://www.youtube.com/embed/J7vY3g4lflk"></iframe>
+                  </p>
+                </section>
+
+                <section>
+                  <h4>About Prof. Gerard van Bussel</h4>
+                  <table  style="width:100%">
+                      <td style="width:70%" style="vertical-align:top">
+                        <p style="vertical-align:top">Prof. Gerard van Bussel is the holder of the Chair Wind Energy in TU Delft </p>
+                        <a href="http://www.lr.tudelft.nl/en/organisation/chairholders/profile-of-a-prof/gerard-van-bussel/" target="_blank">Full profile</a>
+
+                      </td>
+                      <td>
+                        <img src="http://www.lr.tudelft.nl/uploads/tx_templavoila/GerardvBussel3.jpg" alt="Link to image failed" >
+                      </td>
+                  </table>
+
+                </section>
+              </section>
+
+
+             <!-- /////// new slide //// -->
+
+              <section id="history_master">
+                <h3>The History of Wind Energy</h3>
+
+              </section>
+
+              <section id="history_toc">
+                <h3>The History of Wind Energy</h3>
+                <h4>Table of contents</h4>
+
+              </section>
+
+              <!-- /////// new slide //// -->
+
+               <section id="aerodynamics_master">
+                 <h3>Aerodynamics of Wind Energy</h3>
+
+               </section>
+
+               <section id="aerodynamics_toc">
+                 <h3>Aerodynamics of Wind Energy</h3>
+                 <h4>Table of contents</h4>
+
+               </section>
+
+               <section id="last_slide">
+                 <h3>End of the tutorial</h3>
+               </section>
+
+            <!-- ////////////////////////////////////////////////// end of slides ///////////////////////////////
+            ////////////////////////////////////////////////// end of slides ///////////////////////////////
+            ////////////////////////////////////////////////// end of slides ///////////////////////////////
+              ////////////////////////////////////////////////// end of slides ///////////////////////////////
+              ////////////////////////////////////////////////// end of slides ///////////////////////////////
+              ////////////////////////////////////////////////// end of slides /////////////////////////////// -->
+
+      			</div>
+      		</div>
+
+
+        </div>
+
+      </div>   <!--// end of tutorial -->
+
+
+
+
+    <script src="../js/head.min.js"></script>
+    <script src="../js/reveal.js"></script>
+
+    <script>
+
+      Reveal.initialize({
+        resetOnClose: true,
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition:"convex",
+        //Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: '../js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    //  { src: 'js/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          //  { src: 'js/notes.js' }
+        ]
+      });
+
+    </script>
+
+	</body>
+</html>
